@@ -9,3 +9,7 @@ __pycache__/
 .idea/
 .vscode/
 *.log
+
+# 本地生成的 SQLite 数据库及辅助文件
+data/*.db
+data/*.db-*
