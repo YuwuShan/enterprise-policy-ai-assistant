@@ -1,0 +1,62 @@
+[
+  {
+    "question": "采购金额为8000元时，需要经过哪些人审批？",
+    "expected_chunk_ids": [
+      "purchase_approval:demo-v1:第二条"
+    ]
+  },
+  {
+    "question": "为了少走审批，可以把同一笔采购拆成几张小额申请吗？",
+    "expected_chunk_ids": [
+      "purchase_request:demo-v1:第三条"
+    ]
+  },
+  {
+    "question": "已经停用的供应商还能接新的采购订单吗？",
+    "expected_chunk_ids": [
+      "supplier_selection:demo-v1:第二条"
+    ]
+  },
+  {
+    "question": "收到的货物数量少了，验收时应该怎么办？",
+    "expected_chunk_ids": [
+      "acceptance:demo-v1:第二条"
+    ]
+  },
+  {
+    "question": "员工报销最晚需要在费用发生后多少天提交？",
+    "expected_chunk_ids": [
+      "reimbursement:demo-v1:第一条"
+    ]
+  },
+  {
+    "question": "普通员工出差坐高铁，可以按什么座位等级报销？",
+    "expected_chunk_ids": [
+      "travel:demo-v1:第二条"
+    ]
+  },
+  {
+    "question": "普通员工在甲类城市出差，住宿每晚最多报销多少？",
+    "expected_chunk_ids": [
+      "hotel:demo-v1:第二条"
+    ]
+  },
+  {
+    "question": "发票上的企业税号开错了，可以自己改图片吗？",
+    "expected_chunk_ids": [
+      "invoice:demo-v1:第二条"
+    ]
+  },
+  {
+    "question": "供应商突然让我们把钱打到新的账号，应如何处理？",
+    "expected_chunk_ids": [
+      "payment:demo-v1:第二条"
+    ]
+  },
+  {
+    "question": "归档的采购资料需要更正时，能直接覆盖原记录吗？",
+    "expected_chunk_ids": [
+      "archives:demo-v1:第三条"
+    ]
+  }
+]

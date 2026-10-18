@@ -1,0 +1,72 @@
+[
+  {
+    "doc_id": "purchase_approval",
+    "title": "采购审批制度",
+    "version": "demo-v1",
+    "scope": "所有人民币采购；规则与 OA 的 demo-v1 对应",
+    "source_file": "01_purchase_approval.md"
+  },
+  {
+    "doc_id": "purchase_request",
+    "title": "采购申请制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购申请的准备与提交",
+    "source_file": "02_purchase_request.md"
+  },
+  {
+    "doc_id": "supplier_selection",
+    "title": "供应商选用制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购供应商的查询与选用",
+    "source_file": "03_supplier_selection.md"
+  },
+  {
+    "doc_id": "acceptance",
+    "title": "到货验收制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业实物采购到货后的验收",
+    "source_file": "04_acceptance.md"
+  },
+  {
+    "doc_id": "reimbursement",
+    "title": "费用报销制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业员工一般费用报销",
+    "source_file": "05_reimbursement.md"
+  },
+  {
+    "doc_id": "travel",
+    "title": "差旅交通制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业普通员工因公出差的城际交通",
+    "source_file": "06_travel_transport.md"
+  },
+  {
+    "doc_id": "hotel",
+    "title": "差旅住宿制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业普通员工因公出差的住宿；不适用于外部人员",
+    "source_file": "07_accommodation.md"
+  },
+  {
+    "doc_id": "invoice",
+    "title": "报销票据管理制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业内部票据检查流程",
+    "source_file": "08_invoice.md"
+  },
+  {
+    "doc_id": "payment",
+    "title": "采购付款制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业普通实物采购付款，不涉及预付款",
+    "source_file": "09_payment.md"
+  },
+  {
+    "doc_id": "archives",
+    "title": "采购资料归档制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购事项的内部资料归档",
+    "source_file": "10_archives.md"
+  }
+]

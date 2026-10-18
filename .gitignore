@@ -13,3 +13,5 @@ __pycache__/
 # 本地生成的 SQLite 数据库及辅助文件
 data/*.db
 data/*.db-*
+# 自动生成的向量索引和评估运行结果
+data/index/
