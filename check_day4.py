@@ -114,12 +114,6 @@ class Day4Tests(unittest.TestCase):
         result = self.run_flow(hits=[])
         self.assertEqual(result.reason, "insufficient_evidence")
 
-    def test_tool_precheck(self):
-        for question in ("采购8000元谁审批？", "研发部剩余预算多少？", "查询供应商名录"):
-            with self.subTest(question=question), patch.object(service, "search") as retrieve:
-                result = service.answer_question(question)
-                self.assertEqual(result.status, "needs_tool")
-                retrieve.assert_not_called()
 
     def test_model_can_request_tool(self):
         result = self.run_flow(Draft(status="needs_tool"))

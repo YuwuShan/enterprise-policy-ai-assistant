@@ -149,7 +149,7 @@ temperature=0 不能保证绝对确定性。输出截断或 JSON/结构不合法
 ```python
 source = available.get(item.chunk_id)
 if source is None or item.quote not in source["text"]:
-    return False
+    wqreturn False
 ```
 
 引用必须属于本次检索，并逐字存在于该条原文。程序再让复核模型检查结论与引用支持关系、必要条件、适用范围、否定和例外。失败时清除候选结论并返回固定说明，不把未经核验的草稿继续传给用户。

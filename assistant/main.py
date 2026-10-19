@@ -5,9 +5,11 @@ from fastapi import FastAPI, HTTPException
 from openai import APIConnectionError, APIStatusError, APITimeoutError
 
 from assistant.schemas import AskRequest, AskResponse
-from assistant.service import KnowledgeUnavailable, ModelOutputError, answer_question
+from assistant.service import KnowledgeUnavailable, ModelOutputError
+from assistant.orchestrator import handle_question as answer_question
+from assistant.oa_client import OAError
 
-app = FastAPI(title="OA 智能助手", version="0.4.0")
+app = FastAPI(title="OA 智能助手", version="0.5.0")
 logger = logging.getLogger("uvicorn.error")
 
 
@@ -31,6 +33,9 @@ def ask(body: AskRequest):
         status, code, message = 502, "invalid_model_output", "模型没有返回有效的结构化结果，请重试。"
     except KnowledgeUnavailable:
         status, code, message = 503, "knowledge_unavailable", "知识库暂不可用，请检查资料并重建索引。"
+    except OAError as error:
+        status, code = error.http_status, error.code
+        message = {503: "暂时无法连接OA服务。", 504: "OA服务超时，请稍后重试。"}.get(status, "OA返回的数据或接口契约异常，请检查后端。")
     except RuntimeError:
         status, code, message = 503, "configuration_error", "服务配置不完整，请检查本地配置。"
     else:
