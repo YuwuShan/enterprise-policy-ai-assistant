@@ -46,7 +46,7 @@ def ask_model(prompt, schema, data):
 def non_answer(question, status, reason, fields=None):
     fields = list(dict.fromkeys(fields or []))
     messages = {
-        "needs_tool": "这个问题需要查询 OA 数据或执行审批规则。当前 /ask 尚未接通 OA 工具，请先通过 OA 接口查询。",
+        "needs_tool": "本次制度问答流程判断需要查询 OA。请把部门、月份或采购金额和币种写完整，再单独提交查询。",
         "clarify": "还需要补充以下条件，才能确定适用规定：" + "、".join(fields) + "。请补齐后重新提交完整问题。",
         "insufficient_evidence": "现有检索材料不足以确定答案，请补充相关制度或咨询制度负责人。",
         "conflict": "检索材料存在无法确定优先级的冲突，暂时不能给出确定结论，请确认适用版本。",

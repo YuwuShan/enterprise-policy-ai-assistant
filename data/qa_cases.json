@@ -1,0 +1,13 @@
+{
+  "question": "普通员工坐高铁按什么座位等级报销？",
+  "expected_status": "answered",
+  "expected_chunk_ids": [
+    "travel:demo-v1:第二条"
+  ],
+  "required_facts": [
+    "二等座"
+  ],
+  "forbidden_facts": [
+    "一等座可以直接报销"
+  ]
+}

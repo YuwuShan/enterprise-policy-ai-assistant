@@ -62,12 +62,21 @@ class Citation(StrictModel):
     quote: str
 
 
+class ToolTrace(StrictModel):
+    name: str
+    arguments: dict
+    endpoint: str
+    queried_at: str
+    data: dict | None = None
+
+
 class AskResponse(StrictModel):
     request_id: str = ""
     question: str
-    status: Literal["answer", "clarify", "refuse", "needs_tool"]
+    status: Literal["answer", "clarify", "refuse", "needs_tool", "not_found"]
     answer: str
     reason: str
     citations: list[Citation] = Field(default_factory=list)
     missing_fields: list[MissingField] = Field(default_factory=list)
-    mode: Literal["rag"] = "rag"
+    mode: Literal["rag", "tool", "router"] = "rag"
+    tool: ToolTrace | None = None
