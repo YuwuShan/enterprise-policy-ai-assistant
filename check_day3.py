@@ -1,3 +1,4 @@
+import argparse
 import numpy as np
 
 from rag.documents import embedding_text, fingerprint, load_chunks, split_document
@@ -14,9 +15,13 @@ def must_fail(function, *args):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--expected-docs", type=int, default=10)
+    parser.add_argument("--expected-chunks", type=int, default=30)
+    args = parser.parse_args()
     chunks = load_chunks()
-    assert len({c["doc_id"] for c in chunks}) == 10, "本次配套资料应有 10 份"
-    assert len(chunks) == 30, "本次配套资料应有 30 条"
+    assert len({c["doc_id"] for c in chunks}) == args.expected_docs, "制度文件数与指定预期不一致"
+    assert len(chunks) == args.expected_chunks, "条款数与指定预期不一致"
     assert len({c["chunk_id"] for c in chunks}) == len(chunks)
     assert all(c["text"] and c["scope"] and c["source_file"] for c in chunks)
     assert all(c["title"] in embedding_text(c) for c in chunks)
@@ -41,7 +46,7 @@ def main():
     assert np.allclose([h["score"] for h in hits], [1, 0.6, -1])
     must_fail(normalize, [[0, 0]])
     must_fail(normalize, [[float("nan"), 1]])
-    print("离线检查通过：10 份制度、30 条条款、元数据、分块、归一化与排序。")
+    print(f"离线检查通过：{args.expected_docs} 份制度、{args.expected_chunks} 条条款、元数据、分块、归一化与排序。")
     print("此检查未调用模型 API，不代表真实语义检索效果已经通过。")
 
 

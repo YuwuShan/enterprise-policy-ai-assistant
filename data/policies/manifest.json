@@ -68,5 +68,285 @@
     "version": "demo-v1",
     "scope": "本模拟企业采购事项的内部资料归档",
     "source_file": "10_archives.md"
+  },
+  {
+    "doc_id": "request_change",
+    "title": "采购需求变更制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业尚未完成的采购申请",
+    "source_file": "11_request_change.md"
+  },
+  {
+    "doc_id": "request_cancel",
+    "title": "采购申请撤回制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业尚未完成的采购申请撤回",
+    "source_file": "12_request_cancel.md"
+  },
+  {
+    "doc_id": "inquiry",
+    "title": "采购询价资料制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购前的询价准备",
+    "source_file": "13_inquiry.md"
+  },
+  {
+    "doc_id": "quotation",
+    "title": "供应商报价登记制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业收到供应商报价后的登记",
+    "source_file": "14_quotation.md"
+  },
+  {
+    "doc_id": "comparison",
+    "title": "采购比价记录制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购方案比较",
+    "source_file": "15_comparison.md"
+  },
+  {
+    "doc_id": "contract_register",
+    "title": "采购合同登记制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购合同的信息登记",
+    "source_file": "16_contract_register.md"
+  },
+  {
+    "doc_id": "contract_change",
+    "title": "采购合同变更记录制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业已签署采购合同的变更记录",
+    "source_file": "17_contract_change.md"
+  },
+  {
+    "doc_id": "order_tracking",
+    "title": "采购订单跟踪制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业已下单采购的进度跟踪",
+    "source_file": "18_order_tracking.md"
+  },
+  {
+    "doc_id": "delivery_delay",
+    "title": "采购交付延期处理制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业供应商交付延期",
+    "source_file": "19_delivery_delay.md"
+  },
+  {
+    "doc_id": "partial_acceptance",
+    "title": "分批到货验收制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业同一订单的分批到货",
+    "source_file": "20_partial_acceptance.md"
+  },
+  {
+    "doc_id": "software_acceptance",
+    "title": "软件许可验收制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业软件许可类采购验收",
+    "source_file": "21_software_acceptance.md"
+  },
+  {
+    "doc_id": "service_acceptance",
+    "title": "服务采购验收制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业非实物服务采购的成果验收",
+    "source_file": "22_service_acceptance.md"
+  },
+  {
+    "doc_id": "purchase_return",
+    "title": "采购退货登记制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业已到货物品退货",
+    "source_file": "23_purchase_return.md"
+  },
+  {
+    "doc_id": "purchase_exchange",
+    "title": "采购换货登记制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业已到货物品换货",
+    "source_file": "24_purchase_exchange.md"
+  },
+  {
+    "doc_id": "warranty",
+    "title": "采购物品保修登记制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购物品售后保修",
+    "source_file": "25_warranty.md"
+  },
+  {
+    "doc_id": "asset_tag",
+    "title": "资产标签管理制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业需要登记的实物资产标签",
+    "source_file": "26_asset_tag.md"
+  },
+  {
+    "doc_id": "asset_issue",
+    "title": "办公资产领用制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业员工领用办公资产",
+    "source_file": "27_asset_issue.md"
+  },
+  {
+    "doc_id": "asset_loan",
+    "title": "办公资产借用制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业短期借用办公资产",
+    "source_file": "28_asset_loan.md"
+  },
+  {
+    "doc_id": "asset_return",
+    "title": "办公资产归还制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业员工归还办公资产",
+    "source_file": "29_asset_return.md"
+  },
+  {
+    "doc_id": "asset_transfer",
+    "title": "办公资产调拨制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业部门之间调拨办公资产",
+    "source_file": "30_asset_transfer.md"
+  },
+  {
+    "doc_id": "consumables",
+    "title": "办公耗材出入库制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业办公耗材库存记录",
+    "source_file": "31_consumables.md"
+  },
+  {
+    "doc_id": "inventory_count",
+    "title": "办公物资盘点制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业办公资产与耗材盘点",
+    "source_file": "32_inventory_count.md"
+  },
+  {
+    "doc_id": "supplier_update",
+    "title": "供应商资料更新制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业供应商基础信息更新",
+    "source_file": "33_supplier_update.md"
+  },
+  {
+    "doc_id": "supplier_qualification",
+    "title": "供应商资质到期管理制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业供应商资质资料维护",
+    "source_file": "34_supplier_qualification.md"
+  },
+  {
+    "doc_id": "supplier_performance",
+    "title": "供应商履约记录制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业供应商交付与服务记录",
+    "source_file": "35_supplier_performance.md"
+  },
+  {
+    "doc_id": "conflict_disclosure",
+    "title": "采购利益关联申报制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业采购参与人员的利益关联申报",
+    "source_file": "36_conflict_disclosure.md"
+  },
+  {
+    "doc_id": "procurement_confidentiality",
+    "title": "采购资料保密制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业内部报价与合同资料的访问",
+    "source_file": "37_procurement_confidentiality.md"
+  },
+  {
+    "doc_id": "data_export",
+    "title": "采购数据导出制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业从模拟 OA 导出采购数据",
+    "source_file": "38_data_export.md"
+  },
+  {
+    "doc_id": "reimbursement_correction",
+    "title": "报销退回补正制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业已被退回的报销申请",
+    "source_file": "39_reimbursement_correction.md"
+  },
+  {
+    "doc_id": "travel_cancel",
+    "title": "差旅取消与退改登记制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业已批准出差安排的取消或变更",
+    "source_file": "40_travel_cancel.md"
+  },
+  {
+    "doc_id": "training_expense",
+    "title": "工作培训费用材料制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业因工作安排参加培训的报销材料",
+    "source_file": "41_training_expense.md"
+  },
+  {
+    "doc_id": "courier_expense",
+    "title": "办公快递费用材料制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业因公寄送物品的快递费用",
+    "source_file": "42_courier_expense.md"
+  },
+  {
+    "doc_id": "office_supplies",
+    "title": "办公用品申领制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业员工申领常用办公用品",
+    "source_file": "43_office_supplies.md"
+  },
+  {
+    "doc_id": "urgent_procurement",
+    "title": "紧急采购记录制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业紧急情况下的采购事项记录",
+    "source_file": "44_urgent_procurement.md"
+  },
+  {
+    "doc_id": "reconciliation",
+    "title": "采购对账资料制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业与供应商核对采购和付款记录",
+    "source_file": "45_reconciliation.md"
+  },
+  {
+    "doc_id": "duplicate_payment",
+    "title": "疑似重复付款核查制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业发现可能重复的采购付款",
+    "source_file": "46_duplicate_payment.md"
+  },
+  {
+    "doc_id": "payment_failure",
+    "title": "采购付款失败处理制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业银行付款未成功的情况",
+    "source_file": "47_payment_failure.md"
+  },
+  {
+    "doc_id": "invoice_order_difference",
+    "title": "票据订单差异核对制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业票据与采购订单内容不一致",
+    "source_file": "48_invoice_order_difference.md"
+  },
+  {
+    "doc_id": "budget_adjustment",
+    "title": "预算调整记录制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业部门预算调整申请记录",
+    "source_file": "49_budget_adjustment.md"
+  },
+  {
+    "doc_id": "record_correction",
+    "title": "OA记录查询纠错制度",
+    "version": "demo-v1",
+    "scope": "本模拟企业查询采购与报销记录时发现差异",
+    "source_file": "50_record_correction.md"
   }
 ]
