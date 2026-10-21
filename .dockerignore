@@ -1,0 +1,18 @@
+# Allow only the files explicitly needed by this image.
+**
+!Dockerfile
+!requirements.txt
+!model_client.py
+!check_day4.py
+!check_day5.py
+!assistant/
+!assistant/*.py
+!oa/
+!oa/*.py
+!rag/
+!rag/*.py
+!scripts/
+!scripts/*.py
+!deploy/
+!deploy/container_start.py
+!deploy/persistence_probe.py
