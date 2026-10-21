@@ -1,0 +1,5 @@
+auth/
+acme/
+backups/
+nginx/cloud.conf
+nginx/bootstrap.conf

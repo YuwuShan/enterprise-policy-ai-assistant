@@ -1,0 +1,22 @@
+# Use with compose.yaml on the Linux server. Requires Docker Compose >= 2.24.4.
+services:
+  oa:
+    image: oa-assistant:day7
+  assistant:
+    image: oa-assistant:day7
+  nginx:
+    ports: !override
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+    volumes:
+      - type: bind
+        source: ./deploy/nginx/cloud.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+        bind:
+          create_host_path: false
+      - ./deploy/nginx/proxy.inc:/etc/nginx/includes/proxy.inc:ro
+      - ./deploy/web:/usr/share/nginx/html:ro
+      - ./deploy/auth:/etc/nginx/auth:ro
+      - ./deploy/acme:/var/www/certbot:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
