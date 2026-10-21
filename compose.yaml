@@ -1,0 +1,90 @@
+name: oa-assistant
+
+x-app: &app
+  image: oa-assistant:day6
+  build:
+    context: .
+  restart: unless-stopped
+  init: true
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  oa:
+    <<: *app
+    command: ["python", "deploy/container_start.py", "oa"]
+    volumes:
+      - oa_data:/app/data
+    healthcheck:
+      # Check an actual database-backed API, not just the process liveness route.
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/suppliers', timeout=3).read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  assistant:
+    <<: *app
+    command: ["python", "deploy/container_start.py", "assistant"]
+    environment:
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:?Set DASHSCOPE_API_KEY in .env}
+      DASHSCOPE_BASE_URL: ${DASHSCOPE_BASE_URL:?Set DASHSCOPE_BASE_URL in .env}
+      CHAT_MODEL: ${CHAT_MODEL:?Set CHAT_MODEL in .env}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:?Set EMBEDDING_MODEL in .env}
+      OA_BASE_URL: http://oa:8001
+    volumes:
+      - type: bind
+        source: ./data/policies
+        target: /app/data/policies
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./data/index
+        target: /app/data/index
+        read_only: true
+        bind:
+          create_host_path: false
+    depends_on:
+      oa:
+        condition: service_healthy
+    healthcheck:
+      # Liveness only. This does not prove the model credentials or RAG index work.
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3).read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  nginx:
+    image: nginx:stable-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:80"
+    volumes:
+      - type: bind
+        source: ./deploy/nginx/default.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+        bind:
+          create_host_path: false
+    depends_on:
+      assistant:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  oa_data:
