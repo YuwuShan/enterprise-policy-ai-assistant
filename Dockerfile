@@ -16,7 +16,7 @@ COPY --chown=app:app assistant ./assistant
 COPY --chown=app:app oa ./oa
 COPY --chown=app:app rag ./rag
 COPY --chown=app:app scripts ./scripts
-COPY --chown=app:app deploy/container_start.py deploy/persistence_probe.py ./deploy/
+COPY --chown=app:app deploy/container_start.py deploy/persistence_probe.py deploy/check_runtime.py ./deploy/
 COPY --chown=app:app model_client.py check_day4.py check_day5.py ./
 
 USER app
