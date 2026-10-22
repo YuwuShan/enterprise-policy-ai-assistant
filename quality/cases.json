@@ -1,0 +1,389 @@
+[
+  {
+    "id": "D8-01",
+    "group": "tool",
+    "question": "查询研发部2026-10的剩余预算",
+    "rubric": "剩余75000.00元，部门和月份正确。",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "query_budget",
+      "arguments": {
+        "department": "研发部",
+        "month": "2026-10"
+      },
+      "data": {
+        "remaining": "75000.00"
+      }
+    }
+  },
+  {
+    "id": "D8-02",
+    "group": "tool",
+    "question": "查询不存在部2026-10的预算",
+    "rubric": "未找到记录，不能解释成预算为0。",
+    "expected": {
+      "status": "not_found",
+      "mode": "tool",
+      "tool": "query_budget",
+      "arguments": {
+        "department": "不存在部",
+        "month": "2026-10"
+      },
+      "data_is_null": true
+    }
+  },
+  {
+    "id": "D8-03",
+    "group": "tool",
+    "question": "按品类查询正常的电脑供应商",
+    "rubric": "只有SUP002，不能混入已停用的SUP003。",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "query_suppliers",
+      "arguments": {
+        "category": "电脑",
+        "status": "active"
+      },
+      "data": {
+        "count": 1
+      },
+      "supplier_ids": [
+        "SUP002"
+      ]
+    }
+  },
+  {
+    "id": "D8-04",
+    "group": "tool",
+    "question": "按品类查询火箭供应商",
+    "rubric": "按品类查询、返回空列表，不是服务故障。",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "query_suppliers",
+      "arguments": {
+        "category": "火箭"
+      },
+      "data": {
+        "count": 0
+      },
+      "supplier_ids": []
+    }
+  },
+  {
+    "id": "D8-05",
+    "group": "tool",
+    "question": "按名称查询联达数码供应商",
+    "rubric": "按名称查询，返回SUP002；未指定状态，不应擅自过滤。",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "query_suppliers",
+      "arguments": {
+        "keyword": "联达数码"
+      },
+      "data": {
+        "count": 1
+      },
+      "supplier_ids": [
+        "SUP002"
+      ]
+    }
+  },
+  {
+    "id": "D8-06",
+    "group": "tool",
+    "question": "采购4999.99元需要谁审批？",
+    "rubric": "金额4999.99，规则PUR-001，审批链顺序为：部门主管",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "get_approval_chain",
+      "arguments": {
+        "amount": "4999.99",
+        "currency": "CNY"
+      },
+      "data": {
+        "amount": "4999.99",
+        "currency": "CNY",
+        "rule_id": "PUR-001",
+        "rule_version": "demo-v1",
+        "chain": [
+          "部门主管"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D8-07",
+    "group": "tool",
+    "question": "采购5000元需要谁审批？",
+    "rubric": "金额5000.00，规则PUR-002，审批链顺序为：部门主管→财务",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "get_approval_chain",
+      "arguments": {
+        "amount": "5000.00",
+        "currency": "CNY"
+      },
+      "data": {
+        "amount": "5000.00",
+        "currency": "CNY",
+        "rule_id": "PUR-002",
+        "rule_version": "demo-v1",
+        "chain": [
+          "部门主管",
+          "财务"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D8-08",
+    "group": "tool",
+    "question": "采购19999.99元需要谁审批？",
+    "rubric": "金额19999.99，规则PUR-002，审批链顺序为：部门主管→财务",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "get_approval_chain",
+      "arguments": {
+        "amount": "19999.99",
+        "currency": "CNY"
+      },
+      "data": {
+        "amount": "19999.99",
+        "currency": "CNY",
+        "rule_id": "PUR-002",
+        "rule_version": "demo-v1",
+        "chain": [
+          "部门主管",
+          "财务"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D8-09",
+    "group": "tool",
+    "question": "采购20000元需要谁审批？",
+    "rubric": "金额20000.00，规则PUR-003，审批链顺序为：部门主管→财务→总经理",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "get_approval_chain",
+      "arguments": {
+        "amount": "20000.00",
+        "currency": "CNY"
+      },
+      "data": {
+        "amount": "20000.00",
+        "currency": "CNY",
+        "rule_id": "PUR-003",
+        "rule_version": "demo-v1",
+        "chain": [
+          "部门主管",
+          "财务",
+          "总经理"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D8-10",
+    "group": "tool",
+    "question": "采购3万元需要谁审批？",
+    "rubric": "金额30000.00，规则PUR-003，审批链顺序为：部门主管→财务→总经理",
+    "expected": {
+      "status": "answer",
+      "mode": "tool",
+      "tool": "get_approval_chain",
+      "arguments": {
+        "amount": "30000.00",
+        "currency": "CNY"
+      },
+      "data": {
+        "amount": "30000.00",
+        "currency": "CNY",
+        "rule_id": "PUR-003",
+        "rule_version": "demo-v1",
+        "chain": [
+          "部门主管",
+          "财务",
+          "总经理"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D8-11",
+    "group": "clarify",
+    "question": "查询2026-10的剩余预算",
+    "rubric": "必须说明缺失或不支持的条件；不能编造查询结果。",
+    "expected": {
+      "status": "clarify",
+      "fields": [
+        "所属部门"
+      ],
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-12",
+    "group": "clarify",
+    "question": "查询研发部剩余预算",
+    "rubric": "必须说明缺失或不支持的条件；不能编造查询结果。",
+    "expected": {
+      "status": "clarify",
+      "fields": [
+        "查询月份"
+      ],
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-13",
+    "group": "clarify",
+    "question": "采购8000需要谁审批",
+    "rubric": "必须说明缺失或不支持的条件；不能编造查询结果。",
+    "expected": {
+      "status": "clarify",
+      "fields": [
+        "币种"
+      ],
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-14",
+    "group": "clarify",
+    "question": "采购8000美元需要谁审批",
+    "rubric": "必须说明缺失或不支持的条件；不能编造查询结果。",
+    "expected": {
+      "status": "clarify",
+      "fields": [
+        "币种"
+      ],
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-15",
+    "group": "rag",
+    "question": "采购需求变更后总金额变了，原审批还能直接沿用吗？",
+    "rubric": "按变更后的采购总金额重新执行既有审批规则，不能沿用不适用的结果。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "request_change:demo-v1:第二条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-16",
+    "group": "rag",
+    "question": "供应商报价已经超过有效期，可以继续照旧下单吗？",
+    "rubric": "应重新确认报价仍然有效，不能直接沿用过期报价。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "quotation:demo-v1:第三条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-17",
+    "group": "rag",
+    "question": "采购的软件已开通账号，验收时还需要验证什么？",
+    "rubric": "验证授权账号能正常登录并使用约定功能。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "software_acceptance:demo-v1:第二条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-18",
+    "group": "rag",
+    "question": "借用的办公资产需要延期，什么时候联系谁？",
+    "rubric": "到期前联系资产管理员更新记录，保留时间条件和责任人。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "asset_loan:demo-v1:第二条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-19",
+    "group": "rag",
+    "question": "供应商资质资料还在核实，可以直接认为已经合格吗？",
+    "rubric": "待核实不等于已确认合格；采购选用时由采购负责人核实可用状态。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "supplier_qualification:demo-v1:第三条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-20",
+    "group": "rag",
+    "question": "上个月导出的采购表能当作今天的实时数据吗？",
+    "rubric": "不能；导出文件应记录生成时间和筛选条件。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "data_export:demo-v1:第三条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-21",
+    "group": "rag",
+    "question": "采购事情非常紧急，写个紧急说明就能代替审批吗？",
+    "rubric": "紧急说明不能替代审批，金额审批仍按模拟OA规则执行。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "urgent_procurement:demo-v1:第二条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-22",
+    "group": "rag",
+    "question": "预算调整申请提交后，可以认为预算余额已经增加了吗？",
+    "rubric": "不能；以OA中实际更新的预算记录为准。",
+    "expected": {
+      "status": "answer",
+      "mode": "rag",
+      "source": "budget_adjustment:demo-v1:第二条",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-23",
+    "group": "refuse",
+    "question": "公司允许带宠物进办公室吗？",
+    "rubric": "现有采购与报销制度不足以回答，不能编造宠物制度。",
+    "expected": {
+      "status": "refuse",
+      "no_tool": true
+    }
+  },
+  {
+    "id": "D8-24",
+    "group": "refuse",
+    "question": "公司员工生日假可以休几天？",
+    "rubric": "现有制度不足以给出天数，不能凭常识编造。",
+    "expected": {
+      "status": "refuse",
+      "no_tool": true
+    }
+  }
+]
