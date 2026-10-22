@@ -1,0 +1,10 @@
+# First certificate only: no public application access before HTTPS is ready.
+services:
+  nginx:
+    volumes:
+      - type: bind
+        source: ./deploy/nginx/bootstrap.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+        bind:
+          create_host_path: false

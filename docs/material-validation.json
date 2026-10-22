@@ -1,0 +1,18 @@
+{
+  "compose": [
+    "local_8081",
+    "cloud_only_80_443",
+    "certificate_bootstrap"
+  ],
+  "domain_rejection_cases": 7,
+  "restore_to_isolated_database": "passed",
+  "acceptance_result_checks": "passed",
+  "python_syntax": "passed",
+  "browser_javascript_syntax": "passed",
+  "shell_syntax": "passed",
+  "browser_runtime_preview": "not_verified_tool_unavailable",
+  "docker_engine_build_or_run": false,
+  "real_certificate": false,
+  "cloud_deployment": false,
+  "paid_model_calls": 0
+}

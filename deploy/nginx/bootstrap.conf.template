@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name __DOMAIN__;
+    server_tokens off;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        default_type text/plain;
+        try_files $uri =404;
+    }
+    location = /health {
+        default_type application/json;
+        return 200 '{"status":"ok","service":"certificate-bootstrap"}';
+    }
+    location / {
+        return 404;
+    }
+}

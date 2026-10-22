@@ -16,3 +16,5 @@
 !deploy/
 !deploy/container_start.py
 !deploy/persistence_probe.py
+
+!deploy/check_runtime.py
