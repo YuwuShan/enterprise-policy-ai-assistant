@@ -1,0 +1,14 @@
+{
+  "run_id": "20261022T122039Z-93bdf46d",
+  "base_url": "https://oa.jacewood.work",
+  "created_at_utc": "2026-10-22T12:20:39.031566+00:00",
+  "local_commit": "678fc19af4421c25332c85418b3c70eef7a50282",
+  "local_dirty": true,
+  "server_revision_user_supplied": "unknown",
+  "server_revision_independently_verified": false,
+  "model_label_user_supplied": "unknown",
+  "local_corpus_fingerprint": "1515259720dd61ade58d0330fc1b2a1d66f6215aa0a1b796c4896b339c0fb0e1",
+  "cases_sha256": "d99578fe93e51fec10ef364782726d2fdca49808e941b3e593246402a8e6210e",
+  "planned": 24,
+  "dataset_role": "development regression; not an independent test set"
+}
